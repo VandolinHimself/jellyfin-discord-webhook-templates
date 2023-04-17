@@ -1,0 +1,39 @@
+{
+    "content": "{{MentionType}}",
+    "avatar_url": "{{AvatarUrl}}",
+    "username": "{{{BotUsername}}}",
+    "embeds": [
+        {
+            {{#if_equals ItemType 'Episode'}}
+                "title": "{{{SeriesName}}} S{{SeasonNumber00}}E{{EpisodeNumber00}} ~ {{{Name}}}",
+            {{else}}
+                "title": "{{{Name}}} ({{Year}})",
+            {{/if_equals}}
+            "color": "16711680",
+            "author":{
+                "name": "Playback Stopped"
+            },
+            "thumbnail":{
+                "url": "{{ServerUrl}}/Items/{{ItemId}}/Images/Primary"
+                },
+            "fields": [
+            {
+                "name": "User",
+                "value": "{{{NotificationUsername}}}",
+                "inline": true
+            },
+            {
+                "name": "Position",
+                "value": "{{PlaybackPosition}}/{{RunTime}}",
+                "inline": true
+            }
+            ],
+            "url": "https://www.imdb.com/title/{{Provider_imdb}}",
+            "description": "> {{{Overview}}} ",
+            "footer": {
+                "text": "{{ServerName}}",
+                "icon_url": "{{AvatarUrl}}"
+            }
+        }
+    ]
+}
